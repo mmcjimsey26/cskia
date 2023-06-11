@@ -1,2 +1,5 @@
 /skia
 /dist
+/out
+*.o
+*.a
