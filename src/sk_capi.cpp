@@ -4,6 +4,10 @@
   #define SK_GL
 #endif
 
+#ifndef SK_GANESH
+  #define SK_GANESH
+#endif
+
 #include "include/core/SkBlurTypes.h"
 #include "include/core/SkCanvas.h"
 #include "include/core/SkColorSpace.h"
