@@ -1,5 +1,9 @@
 #include "../include/sk_capi.h"
 
+#ifndef SK_GL
+  #define SK_GL
+#endif
+
 #include "include/core/SkBlurTypes.h"
 #include "include/core/SkCanvas.h"
 #include "include/core/SkColorSpace.h"
@@ -2237,7 +2241,9 @@ sk_string_t *sk_typeface_get_family_name(const sk_typeface_t *typeface) {
 sk_typeface_t *sk_typeface_make_from_name(const char *family_name,
                                           sk_font_style_t *font_style) {
   return reinterpret_cast<sk_typeface_t *>(
-      SkTypeface::MakeFromName(family_name, font_style));
+      SkTypeface::MakeFromName(family_name,
+                               *reinterpret_cast<SkFontStyle *>(font_style))
+          .release());
 }
 
 sk_font_style_t *sk_typeface_get_fontstyle(const sk_typeface_t *typeface) {
