@@ -1176,6 +1176,8 @@ SK_C_API void sk_textblob_unref(const sk_text_blob_t *blob);
 // ===== Functions from include/core/SkTypeface.h =====
 SK_C_API sk_string_t *
 sk_typeface_get_family_name(const sk_typeface_t *typeface);
+SK_C_API sk_typeface_t *sk_typeface_make_from_name(const char *family_name,
+                                                   sk_font_style_t *font_style);
 SK_C_API sk_font_style_t *
 sk_typeface_get_fontstyle(const sk_typeface_t *typeface);
 SK_C_API int sk_typeface_get_units_per_em(const sk_typeface_t *typeface);

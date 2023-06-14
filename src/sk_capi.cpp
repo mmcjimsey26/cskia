@@ -14,6 +14,7 @@
 #include "include/core/SkStream.h"
 #include "include/core/SkSurface.h"
 #include "include/core/SkTextBlob.h"
+#include "include/core/SkTypeface.h"
 #include "include/effects/Sk1DPathEffect.h"
 #include "include/effects/Sk2DPathEffect.h"
 #include "include/effects/SkColorMatrixFilter.h"
@@ -2231,6 +2232,12 @@ sk_string_t *sk_typeface_get_family_name(const sk_typeface_t *typeface) {
   SkString *family_name = new SkString();
   reinterpret_cast<const SkTypeface *>(typeface)->getFamilyName(family_name);
   return reinterpret_cast<sk_string_t *>(family_name);
+}
+
+sk_typeface_t *sk_typeface_make_from_name(const char *family_name,
+                                          sk_font_style_t *font_style) {
+  return reinterpret_cast<sk_typeface_t *>(
+      SkTypeface::MakeFromName(family_name, font_style));
 }
 
 sk_font_style_t *sk_typeface_get_fontstyle(const sk_typeface_t *typeface) {
