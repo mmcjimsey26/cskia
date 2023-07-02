@@ -2250,6 +2250,10 @@ sk_typeface_t *sk_typeface_make_from_name(const char *family_name,
           .release());
 }
 
+sk_typeface_t *sk_typeface_make_default() {
+  return reinterpret_cast<sk_typeface_t *>(SkTypeface::MakeDefault().release());
+}
+
 sk_font_style_t *sk_typeface_get_fontstyle(const sk_typeface_t *typeface) {
   SkFontStyle fs = reinterpret_cast<const SkTypeface *>(typeface)->fontStyle();
   return reinterpret_cast<sk_font_style_t *>(

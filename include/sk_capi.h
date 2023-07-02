@@ -1178,6 +1178,7 @@ SK_C_API sk_string_t *
 sk_typeface_get_family_name(const sk_typeface_t *typeface);
 SK_C_API sk_typeface_t *sk_typeface_make_from_name(const char *family_name,
                                                    sk_font_style_t *font_style);
+SK_C_API sk_typeface_t *sk_typeface_make_default();
 SK_C_API sk_font_style_t *
 sk_typeface_get_fontstyle(const sk_typeface_t *typeface);
 SK_C_API int sk_typeface_get_units_per_em(const sk_typeface_t *typeface);
