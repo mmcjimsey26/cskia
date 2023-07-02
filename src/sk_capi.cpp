@@ -971,6 +971,10 @@ void sk_canvas_translate(sk_canvas_t *canvas, float dx, float dy) {
   reinterpret_cast<SkCanvas *>(canvas)->translate(dx, dy);
 }
 
+void sk_canvas_delete(sk_canvas_t *canvas) {
+  delete reinterpret_cast<SkCanvas *>(canvas);
+}
+
 // ===== Functions from include/core/SkColorFilter.h =====
 sk_color_filter_t *sk_colorfilter_new_color_matrix(const float array[20]) {
   return reinterpret_cast<sk_color_filter_t *>(
@@ -2152,6 +2156,10 @@ sk_image_t *sk_surface_make_image_snapshot(sk_surface_t *surface) {
 
 void sk_surface_unref(sk_surface_t *surface) {
   SkSafeUnref(reinterpret_cast<SkSurface *>(surface));
+}
+
+void sk_surface_delete(sk_surface_t *surface) {
+  delete reinterpret_cast<SkSurface *>(surface);
 }
 
 // ===== Functions from include/core/SkSurfaceProps.h =====

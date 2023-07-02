@@ -761,6 +761,7 @@ SK_C_API void sk_canvas_set_matrix(sk_canvas_t *canvas,
                                    const sk_matrix_t *matrix);
 SK_C_API void sk_canvas_skew(sk_canvas_t *canvas, float sx, float sy);
 SK_C_API void sk_canvas_translate(sk_canvas_t *canvas, float dx, float dy);
+SK_C_API void sk_canvas_delete(sk_canvas_t *canvas);
 
 // ===== Functions from include/core/SkColorFilter.h =====
 SK_C_API sk_color_filter_t *
@@ -1138,6 +1139,7 @@ SK_C_API sk_surface_t *sk_surface_new_backend_render_target(
     gr_surface_origin_t origin, sk_color_type_t colorType,
     sk_color_space_t *colorspace, const sk_surface_props_t *props);
 SK_C_API void sk_surface_unref(sk_surface_t *surface);
+SK_C_API void sk_surface_delete(sk_surface_t *surface);
 
 // ===== Functions from include/core/SkSurfaceProps.h =====
 SK_C_API sk_surface_props_t *sk_surfaceprops_new(uint32_t flags,
