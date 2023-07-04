@@ -1,17 +1,18 @@
-SRC=src/sk_capi.cpp
-OBJ=$(patsubst %.cpp,%.o,$(SRC))
-OUT=out/libcskia.a
+SRC=src/sk_c_api.cc
+OBJ=$(patsubst %.cc,%.o,$(SRC))
+OUT=out/libcskia.so
 
 CFLAGS=-I. -Ilib/skia -std=c++20
 
 all: $(OUT)
 
 $(OUT): $(OBJ)
-	ar rcs out/libcskia.a $(OBJ)
-	ranlib out/libcskia.a
+	@mkdir out
+	clang++ -shared -o $(OUT) $(OBJ)
 
-%.o: %.cpp
-	clang++ -c $< -o $@ $(CFLAGS)
+%.o: %.cc
+	clang++ -fpic -c $< -o $@ $(CFLAGS)
 
 clean:
 	rm $(OUT) $(OBJ)
+	rmdir out
